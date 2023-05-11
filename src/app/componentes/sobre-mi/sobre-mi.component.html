@@ -1,0 +1,104 @@
+<section id="sobreMi" class="info-section container-fluid">
+
+    <!-- Modal Editar Persona-->
+    <div class="modal fade" id="modalPersona" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="cerrarModal()"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre Completo</label>
+                        <input id="nombre"
+                                type="text" 
+                                [(ngModel)]="persona.nombre"  
+                                class="form-control" 
+                                #nombre="ngModel"
+                                placeholder="Ingrese nombre"
+                                required>
+                        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                            <p *ngIf="nombre?.hasError('required')" class="text-danger">El nombre es requerido</p>
+                        </div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="ocupacion" class="form-label">Ocupación</label>
+                        <input id="ocupacion" 
+                                type="text" 
+                                [(ngModel)]="persona.ocupacion" 
+                                class="form-control" 
+                                #ocupacion="ngModel"
+                                placeholder="Ingrese ocupación"
+                                required>
+                        <div *ngIf="ocupacion.invalid && (ocupacion.dirty || ocupacion.touched)">
+                            <p *ngIf="ocupacion?.hasError('required')" class="text-danger">La ocupación es requerida</p>
+                        </div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Sobre mí (descripción)</label>
+                        <textarea id="descripcion" 
+                                rows="3" 
+                                [(ngModel)]="persona.descripcion" 
+                                class="form-control" 
+                                #descripcion="ngModel"
+                                placeholder="Ingrese breve descripción"
+                                required></textarea>
+                        <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                            <p *ngIf="descripcion?.hasError('required')" class="text-danger">Una descripción es requerida</p>
+                        </div>
+                    </div>
+                            
+                    <div class="mb-3">
+                        <label for="fotoPerfil" class="form-label">Url de la foto de perfil</label>
+                        <input id="fotoPerfil"
+                                type="text" 
+                                [(ngModel)]="persona.imgUrl" 
+                                class="form-control" 
+                                #fotoPerfil="ngModel"
+                                placeholder="Ingrese url de la imagen"
+                                required>
+                        <div *ngIf="fotoPerfil.invalid && (fotoPerfil.dirty || fotoPerfil.touched)">
+                            <p *ngIf="fotoPerfil?.hasError('required')" class="text-danger">Una imagen es requerida</p>
+                        </div>
+                    </div>
+                    
+                    <div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+                        <p *ngIf="respta.msj==''">Enviando datos...</p>
+                        <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+                    </div>
+                </div> 
+                <div  class="modal-footer">
+                    <button *ngIf="!respta.salioBien" (click)="editarPersona(perso)" type="submit" class="btn btn-secondary">Editar</button>          
+                    <button *ngIf="respta.salioBien" (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>   
+
+
+    <div class="row align-items-center">
+        <div class="foto-perfil py-3 col-sm-4">
+            <img id="fotoPerfil" class="img-fluid" [src]="persona.imgUrl" alt="Foto de perfil">
+        </div>
+        <div class="col-sm-8">
+            <div class="title-section py-2 d-flex justify-content-between align-items-center">
+                <h2>Sobre mí</h2>
+
+                <!-- Boton modal Editar Persona-->
+                <span *ngIf="isLogged" class="edit-icon p-1">
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalPersona" (click)="abrirModalEditar(persona)" aria-label="Editar">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>                    
+                </span>
+            </div>           
+
+            <p class="h5">{{persona.descripcion}}</p>
+        </div>
+    </div>
+
+</section>

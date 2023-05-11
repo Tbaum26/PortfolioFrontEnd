@@ -1,0 +1,12 @@
+#barraNavegacion {
+    padding: 0rem;
+}
+
+.navIcon {
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+.nav-link {
+    cursor: pointer;
+}

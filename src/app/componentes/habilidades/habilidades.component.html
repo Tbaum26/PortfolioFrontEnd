@@ -1,0 +1,187 @@
+<section id="habilidades" class="info-section container-fluid">
+
+    <!-- Modal Agregar/Editar Habilidades-->
+    <div class="modal fade" id="modalHabilidades" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">{{tituloModal}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"(click)="cerrarModal()"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Cuerpo del Modal Habilidad Tecnica-->
+                    <app-tecnica-agregar-editar
+                        [habilidadTecnica]="habTecnica"
+                        *ngIf="esHabTecnica"
+                        (cerrandoModal)="cerrarModal()">
+                    </app-tecnica-agregar-editar>
+
+                    <!-- Cuerpo del Modal Habilidad Blanda-->
+                    <app-blanda-agregar-editar
+                        [habilidadBlanda]="habBlanda"
+                        *ngIf="esHabBlanda"
+                        (cerrandoModal)="cerrarModal()">
+                    </app-blanda-agregar-editar>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+        <!--HABILIDADES TECNICAS-->
+        <div class="habilidadesTecnicas">
+
+            <div class="title-section py-2 d-flex justify-content-between align-items-center">
+                <h2>Habilidades técnicas</h2>
+                    
+                <!-- Boton modal Agregar Habilidad Tecnica-->
+                <span *ngIf="isLogged" class="edit-icon">
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades">
+                        <i class="bi bi-plus-circle-fill d-flex justify-content-end" (click)="esHabTecnica = true; abrirModalAgregar()"></i>
+                    </button>
+                </span>
+
+            </div>
+
+            <div class="hab-tecnicas m-2">
+
+                <!--Nivel Avanzado-->
+                <div class="container my-2" id="avanzado">
+                    <!--Iconos -->
+                    <ul class="row d-flex list-unstyled">
+                        <li *ngFor="let habTec of listaAvanzado" class="col-4 col-sm-3 col-md-2 d-flex flex-column align-items-center">
+                            
+                            <span *ngIf="isLogged" class="edit-icon p-1 justify-content-between">
+                                <!-- Boton modal Editar Habilidad Tecnica-->
+                                <button class="btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades" (click)="esHabTecnica = true; abrirEditarHabTecnica(habTec)">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <!-- Boton modal Eliminar Habilidad Tecnica-->
+                                <button type="button" class="btn btn-outline-danger" (click)="esHabTecnica = true; eliminarHabTecnica(habTec.id)">
+                                    <i class="bi bi-x-circle-fill"></i>
+                                </button>
+                            </span>
+                            
+                            <!--Iconos-->
+                            <i class="iconTecnica" [class]="habTec.urlIcono"></i>
+                        </li>
+                    
+                    </ul>
+                        
+                    <div class="progress mt-2">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style= "width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p>Avanzado</p>
+                    </div>
+
+                </div>
+
+                <!--Nivel Intermedio-->
+                <div class="container my-2" id="intermedio">
+                    
+                    <!--Itera por los elementos de la lista de habTecnicas-->
+                    <ul class="row d-flex list-unstyled">
+                        <li *ngFor="let habTec of listaIntermedio" class="col-4 col-sm-3 col-md-2 d-flex flex-column align-items-center">
+                            
+                            <span *ngIf="isLogged" class="edit-icon p-1 justify-content-between">
+                                <!-- Boton modal Editar Habilidad Tecnica-->
+                                <button class="btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades" (click)="esHabTecnica = true; abrirEditarHabTecnica(habTec)">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <!-- Boton modal Eliminar Habilidad Tecnica-->
+                                <button type="button" class="btn btn-outline-danger" (click)="esHabTecnica = true; eliminarHabTecnica(habTec.id)">
+                                    <i class="bi bi-x-circle-fill"></i>
+                                </button>
+                            </span>
+                            
+                            <!--Iconos-->
+                            <i class="iconTecnica" [class]="habTec.urlIcono"></i>
+                        </li>
+                    
+                    </ul>
+                        
+                    <div class="progress mt-2">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p>Intermedio</p>
+                    </div>
+                </div>
+
+                <!--Nivel Básico-->
+                <div class="container my-2" id="basico">
+                    
+                    <ul class="row d-flex list-unstyled">
+                        
+                        <li *ngFor="let habTec of listaBasico" class="col-4 col-sm-3 col-md-2 d-flex flex-column align-items-center">
+                            
+                            <span *ngIf="isLogged" class="edit-icon p-1 justify-content-between">
+                                <!-- Boton modal Editar Habilidad Tecnica-->
+                                <button class="btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades" (click)="esHabTecnica = true; abrirEditarHabTecnica(habTec)">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <!-- Boton modal Eliminar Habilidad Tecnica-->
+                                <button type="button" class="btn btn-outline-danger" (click)="esHabTecnica = true; eliminarHabTecnica(habTec.id)">
+                                    <i class="bi bi-x-circle-fill"></i>
+                                </button>
+                            </span>
+
+                            <i class="iconTecnica" [class]="habTec.urlIcono"></i>
+                        
+                        </li>
+                            
+                    </ul>
+                        
+                    <div class="progress mt-2">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p>Básico</p>
+                    </div>
+                        
+                </div>
+            </div>
+        </div>
+        <!--HABILIDADES BLANDAS-->
+        <div class="habilidadesBlandas">
+            <div class="title-section py-2 d-flex justify-content-between align-items-center">
+                <h2>Habilidades blandas</h2>
+        
+                <!-- Boton modal Agregar Habilidad Blanda-->
+                <span *ngIf="isLogged" class="edit-icon">
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades" (click)="esHabBlanda = true; abrirModalAgregar()">
+                        <i class="bi bi-plus-circle-fill d-flex justify-content-end"></i>
+                    </button>
+                </span>
+            </div>
+        
+            <div class="hab-blandas m-2">
+                <ul class="row pt-2 d-flex list-unstyled justify-content-around align-items-center">
+                    
+                    <div *ngFor="let hab of listaHabBlanda" class="col-6 col-sm-3 col-md-2 d-flex flex-column align-items-center">
+                        <span *ngIf="isLogged" class="edit-icon p-1 justify-content-between">
+                            <!-- Boton modal Editar Habilidad Blanda-->
+                            <button class="btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalHabilidades" (click)="esHabBlanda = true; abrirEditarHabBlanda(hab)">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                            <!-- Boton modal Eliminar Habilidad Blanda-->
+                            <button type="button" class="btn btn-outline-danger" (click)="eliminarHabBlanda(hab.id)">
+                                <i class="bi bi-x-circle-fill"></i>
+                            </button>
+                        </span>
+                        <i class="iconBlanda" [class]="hab.urlIcono"></i>
+                        <p>{{hab.nombreHabilidad}}</p>
+                    </div>
+        
+                </ul>
+            </div>
+        </div>
+
+    
+ 
+</section>

@@ -1,0 +1,16 @@
+.hero-container {
+	width: 100%;
+    height: 100vh;
+	background-image: url('../../../assets/triangles-gff33bab01_1280.png');
+	background-position: center center;
+	background-size: cover;
+    position: absolute;
+}
+
+form {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    border-radius: .25rem;
+
+}

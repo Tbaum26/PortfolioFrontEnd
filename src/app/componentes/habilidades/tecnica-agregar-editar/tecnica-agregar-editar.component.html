@@ -1,0 +1,45 @@
+<div>
+    <div class="mb-3">
+        <label for="nombreHabilidad" class="form-label">Nombre de la tecnología o herramienta</label>
+        <input type="text" [(ngModel)]="habTecnica.nombreHabilidad" class="form-control" placeholder="Ej.: Html5">
+    </div>
+
+    <div class="mb-3">
+        <label for="nivelId" class="form-label">Nivel (selecciona uno)</label>
+        <select [(ngModel)]="habTecnica.nivelId" class="form-select" 
+         #nivelId="ngModel" required>
+            <option selected disabled value="">Selecciona uno</option>
+            <option value="1">Avanzado</option>
+            <option value="2">Intermedio</option>
+            <option value="3">Básico</option>
+        </select>
+        <div *ngIf="nivelId.invalid && (nivelId.dirty || nivelId.touched)">
+            <p *ngIf="nivelId?.hasError('required')" class="text-danger">El nivel de suficiencia es requerido</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="urlIcono" class="form-label">Icono</label>
+        <input type="text" 
+            [(ngModel)]="habTecnica.urlIcono" 
+            class="form-control" 
+            #urlIcono="ngModel" 
+            placeholder="Ej.:'fa-brands fa-html5'"
+            required>            
+        <div *ngIf="urlIcono.invalid && (urlIcono.dirty || urlIcono.touched)">
+            <p *ngIf="urlIcono?.hasError('required')" class="text-danger">El icono es requerido</p>
+        </div>
+    </div>
+</div>
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="agregarHabTecnica(habTecnica)" *ngIf="habTecnica.id==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editarHabTecnica(habTecnica)" *ngIf="habTecnica.id!=0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>

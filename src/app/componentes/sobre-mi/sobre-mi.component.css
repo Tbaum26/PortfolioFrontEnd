@@ -1,0 +1,17 @@
+#sobreMi {
+    background-color: var(--grisfondo);
+    margin-top: 0rem;
+    margin-left: 0rem;
+}
+
+#fotoPerfil {
+    border-radius: .25rem;
+}
+
+@media (max-width: 575.98px ) {
+    #fotoPerfil {
+        border-radius: .25rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}

@@ -1,0 +1,160 @@
+{
+  "persona": {
+      "id": 1,
+      "nombre": "Soledad Sasia",
+      "ocupacion": "Desarrolladora Web FullStack Jr.",
+      "bannerUrl": "../../../assets/triangles-gff33bab01_1280.png",
+      "email": "soledadsasia@gmail.com",
+      "linkedinUrl": "https://www.linkedin.com/in/soledad-sasia/",
+      "githubUrl": "https://github.com/SoleSasia",
+      "descripcion": "Entusiasta, apasionada, detallista, autodidacta. Disfruto aprender, encontrar soluciones, trabajar en equipo. Después de transitar por caminos musicales y nómadas...",
+      "imgUrl": "/assets/perfil-bg_blue.png",
+      "usuarioId": 1
+  },
+
+  "educaciones": [
+      {
+          "id": 14,
+          "tituloEdu": "Desarrollo Web Full Stack",
+          "periodoEdu": "2021 - 2022",
+          "institucionEdu": "Argentina Programa",
+          "descripcionEdu": "Capacitación virtual organizada en dos etapas, con una duración total de 9 meses. Certificada conjuntamente por el Ministerio de Desarrollo Productivo y la Cámara Argentina de la Industria de Software (CESSI), y por el INTI.",
+          "urlLogoEdu": "https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/sliderimage1/1659143423/banner-ok-argentina-programa.jpg",
+          "personaId": null
+      },
+      {
+          "id": 20,
+          "tituloEdu": "Análisis de datos con Python",
+          "periodoEdu": "Agosto 2021",
+          "institucionEdu": null,
+          "descripcionEdu": "Curso online de manejo de datos con Pandas.",
+          "urlLogoEdu": "",
+          "personaId": null
+      },
+      {
+          "id": 39,
+          "tituloEdu": "Diplomatura en Introducción a la programación en Java",
+          "periodoEdu": "julio - diciembre 2021",
+          "institucionEdu": "Universidad Tecnológica Nacional - Facultad Regional de Villa María",
+          "descripcionEdu": "",
+          "urlLogoEdu": "../../../assets/utn_frvm.png",
+          "personaId": null
+      },
+      {
+          "id": 40,
+          "tituloEdu": "Bachiller y Técnico en mantenimiento del parque automotor",
+          "periodoEdu": "1999- 2004",
+          "institucionEdu": "IPEM N°58 Gral. Mosconi",
+          "descripcionEdu": "Escuela secundaria con orientación técnica",
+          "urlLogoEdu": "",
+          "personaId": 1
+      }
+  ],
+
+  "experiencias": [
+      {
+          "id": 1,
+          "puestoExpe": "Emprendedora",
+          "periodoExpe": "2020 - actualidad",
+          "organismoExpe": "A Pedal, hecho en casa",
+          "descripcionExpe": "En 2020 comencé un emprendimiento de mermeladas gourmet. Actualmente me encargo de la producción y logística.",
+          "urlLogoExpe": "",
+          "personaId": 1
+      },
+      {
+          "id": 5,
+          "puestoExpe": "Musiclista",
+          "periodoExpe": "2011 - 2016",
+          "organismoExpe": "Intérprete de música latinoamericana",
+          "descripcionExpe": "Durante 6 años viajé por diferentes países de Sudamérica investigando las músicas de matriz afrodescendiente. Ofreciendo espectáculos musicales en espacios públicos y privados, como así también generando espacios de formación.",
+          "urlLogoExpe": "",
+          "personaId": 1
+      }
+  ],
+
+  "habilidadesTecnicas": [
+      {
+          "id": 1,
+          "nombreHabilidad": "Java",
+          "urlIcono": "fa-brands fa-java",
+          "personaId": 1,
+          "nivelId": 1
+      },
+      {
+          "id": 2,
+          "nombreHabilidad": "Html5",
+          "urlIcono": "fa-brands fa-html5",
+          "personaId": 1,
+          "nivelId": 2
+      },
+      {
+          "id": 5,
+          "nombreHabilidad": "Python",
+          "urlIcono": "'fa-brands fa-python'",
+          "personaId": 1,
+          "nivelId": 3
+      },
+      {
+          "id": 9,
+          "nombreHabilidad": "Css3",
+          "urlIcono": "fa-brands fa-css3",
+          "personaId": 1,
+          "nivelId": 2
+      },
+      {
+          "id": 11,
+          "nombreHabilidad": "Javascript",
+          "urlIcono": "fa-brands fa-js-square",
+          "personaId": 1,
+          "nivelId": 2
+      }
+  ],
+
+  "habilidadesBlandas": [
+      {
+          "id": 1,
+          "nombreHabilidad": "Trabajo en equipo",
+          "urlIcono": "fa-solid fa-users",
+          "personaId": 1
+      },
+      {
+          "id": 2,
+          "nombreHabilidad": "Comunicación efectiva",
+          "urlIcono": "fa-solid fa-comments",
+          "personaId": 1
+      },
+      {
+          "id": 4,
+          "nombreHabilidad": "Resolución de problemas",
+          "urlIcono": "fa-solid fa-wrench",
+          "personaId": 1
+      },
+      {
+          "id": 5,
+          "nombreHabilidad": "Autodidacta y curiosa",
+          "urlIcono": "fa-solid fa-laptop",
+          "personaId": 1
+      }
+  ],
+  
+  "proyectos": [
+      {
+          "id": 1,
+          "nombreProye": "Portfolio personal",
+          "descripcionProye": "Trabajo final para la segunda etapa de Argentina Programa #YoProgramo. Aplicación web de arquitectura distribuida. Angular paraf front, Spring-boot para back y MySQL como gestor de base de datos.",
+          "imgUrl": "../../../assets/Proyecto1.png",
+          "repoUrl": "https://",
+          "liveUrl": "https:",
+          "personaId": 1
+      },
+      {
+          "id": 2,
+          "nombreProye": "Murales Telúrbicos",
+          "descripcionProye": "Sitio web construido a medida para les artistes José Sasia y Geou Ravasi",
+          "imgUrl": "https://codigocba.com/uploads/images/image_750x415_6296af1af3019.jpg",
+          "repoUrl": "",
+          "liveUrl": "",
+          "personaId": 1
+      }
+  ]
+}

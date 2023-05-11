@@ -1,0 +1,31 @@
+<div>
+    <div class="mb-3">
+        <label for="nombreHabilidad" class="form-label">Nombre de la habilidad</label>
+        <input type="text" 
+        [(ngModel)]="habBlanda.nombreHabilidad" 
+        class="form-control" 
+        #nombreHabilidad="ngModel" 
+        required 
+        placeholder="Ej.: Resolución de problemas">
+    <div *ngIf="nombreHabilidad.invalid && (nombreHabilidad.dirty || nombreHabilidad.touched)">
+        <p *ngIf="nombreHabilidad?.hasError('required')" class="text-danger">El nombre es requerido</p>
+    </div>
+    </div>
+   
+    <div class="mb-3">
+        <label for="urlIcono" class="form-label">Icono</label>
+        <input type="text" [(ngModel)]="habBlanda.urlIcono" class="form-control" id="urlIcono" placeholder="Ej.:'fa-solid fa-wrench'">
+    </div>
+</div>
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="agregarHabBlanda(habBlanda)" *ngIf="habBlanda.id==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editarHabBlanda(habBlanda)" *ngIf="habBlanda.id!=0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>

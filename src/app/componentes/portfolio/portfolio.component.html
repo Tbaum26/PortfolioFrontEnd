@@ -1,0 +1,55 @@
+<!--Barra de navegacion-->
+<app-navbar
+    [isLogged]="isLogged"
+    [persona]="miPortfolio.persona"
+    (recargandoPortfolio)="cargarVista()">
+</app-navbar>
+
+<!--Header-->
+<app-encabezado
+    [persona]="miPortfolio.persona">
+</app-encabezado>
+
+<!--Sección Sobre Mí-->
+<app-sobre-mi
+    [isLogged]="isLogged"
+    [persona]="miPortfolio.persona"
+    (recargandoPortfolio)="cargarVista()">
+</app-sobre-mi>
+
+<!--Sección Experiencia-->
+<app-experiencia
+    [isLogged]="isLogged"    
+    [idPerso]="miPortfolio.persona.id"
+    [listaExpe]="miPortfolio.experiencias"
+    (recargandoPortfolio)="cargarVista()">
+</app-experiencia>
+
+<!--Sección Educación-->
+<app-educacion
+    [isLogged]="isLogged"
+    [idPerso]="miPortfolio.persona.id"
+    [listaEdu]="miPortfolio.educaciones"
+    (recargandoPortfolio)="cargarVista()">
+</app-educacion>
+
+<!--Sección Habilidades-->
+<app-habilidades 
+    [isLogged]="isLogged"
+    [idPerso]="miPortfolio.persona.id"    
+    [listaHabTecnica]="miPortfolio.habTecnicas"
+    [listaHabBlanda]="miPortfolio.habBlandas"
+    (recargandoPortfolio)="cargarVista()">
+</app-habilidades>
+
+<!--Sección Proyectos-->
+<app-proyectos
+    [isLogged]="isLogged"
+    [idPerso]="miPortfolio.persona.id"
+    [listaProyectos]="miPortfolio.proyectos"
+    (recargandoPortfolio)="cargarVista()">
+</app-proyectos>
+
+<!--Pie de página-->
+<app-footer></app-footer>
+

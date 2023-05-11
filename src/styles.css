@@ -1,0 +1,88 @@
+:root {
+	--azul: #2c5577;
+	--naranja: #dc5435;
+	--grisfondo: #e9ecef;
+}
+
+html {
+	font-family: "source sans pro", sans-serif;
+	overflow-x: hidden; /*para solucionar overflow en la página*/
+}
+
+body {
+	overflow-x: hidden;
+}
+
+h1 {
+	font-family: "julius sans one", sans-serif;
+}
+
+h2, h3 {
+	font-family: "archivo narrow", sans-serif;
+}
+
+/*SECCIONES*/
+.info-section {
+	padding: 1rem 4rem;
+	margin: 1rem;
+}
+
+@media (max-width: 575.98px) { 
+	.info-section {
+		padding: .5rem 2rem;
+		margin: 1rem
+ 	}
+}
+
+.title-section {
+	color:var(--azul);
+	
+}
+
+.title-section h2::after {
+    content: "";
+    display: block;
+    width: 4.2rem;
+    height: .15rem;
+    background-color: var(--naranja);
+    margin-top: 1rem;
+}
+
+/*Estilo botones de edición*/
+
+.edit-icon button{
+	border: #dc3545;
+	color: var(--naranja);
+	border-radius: 50%;
+	background-color: #fff;
+    padding: .3rem;
+}
+
+.bi {
+    padding: 0.1rem;
+}
+
+/*Sobre-escribo estilo modales*/
+
+/*Tamaño modales en mobile*/
+@media (max-width: 575.98px) { 
+	.modal-dialog {
+		max-width: 340px;
+		margin: 1.75rem auto;
+ 	}
+}
+
+.modal-title {
+	color:var(--azul);
+}
+
+.btn-secondary {
+	background-color: var(--naranja);
+	border-color: var(--naranja);
+}
+
+.btn-secondary:hover {
+    color: var(--naranja);	
+    background-color: #fff;
+    border-color: var(--naranja);
+}

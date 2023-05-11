@@ -1,0 +1,27 @@
+#habilidades {
+    margin-left: 0rem;
+}
+
+/*Diferencia tamaños de iconos según tipo de habilidad*/
+
+
+.iconTecnica{
+    font-size: 2rem;
+}
+
+.iconBlanda{
+    font-size: 3rem;
+}
+
+.edit-icon button {
+    padding: .1rem;
+}
+
+p {
+    text-align: center;
+    margin-top: .5rem;
+}
+
+ul {
+    padding-left: 0rem;
+}

@@ -1,0 +1,44 @@
+<div>
+    <div class="mb-3">
+        <label for="puestoExpe" class="form-label">Puesto</label>
+        <input type="text" 
+            [(ngModel)]="expe.puestoExpe"  
+            class="form-control" 
+            required
+            #puestoExpe="ngModel"
+            placeholder="Ingresar el nombre del puesto">
+    </div>
+    <div *ngIf="puestoExpe.invalid && (puestoExpe.dirty || puestoExpe.touched)">
+        <p *ngIf="puestoExpe?.hasError('required')" class="text-danger">El nombre del puesto es requerido</p>
+    </div>
+
+    <div class="mb-3">
+        <label for="periodoExpe" class="form-label">Período</label>
+        <input type="text" [(ngModel)]="expe.periodoExpe" class="form-control" id="periodoExpe" placeholder="Ingrese el período de trabajo">
+    </div>
+    <div class="mb-3">
+        <label for="organismoExpe" class="form-label">Nombre del organismo</label>
+        <input type="text" [(ngModel)]="expe.organismoExpe" class="form-control" id="organismoExpe" placeholder="Ingrese el nombre del organismo">
+    </div>
+    <div class="mb-3">
+        <label for="descripcionExpe" class="form-label">Información adicional</label>
+        <textarea [(ngModel)]="expe.descripcionExpe" class="form-control" id="descripcionExpe" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="urlLogoExpe" class="form-label">Url del logotipo</label>
+        <input type="text" [(ngModel)]="expe.urlLogoExpe" class="form-control" id="urlLogoExpe" placeholder="Ingrese url de la imagen">
+    </div>
+</div>
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="agregarExpe(expe)" *ngIf="expe.id==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editarExpe(expe)" *ngIf="expe.id!=0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>
+

@@ -1,0 +1,47 @@
+<div>
+    <div class="mb-3">
+        <label for="tituloEdu" class="form-label">Título</label>
+        <input type="text" 
+            [(ngModel)]="edu.tituloEdu"  
+            class="form-control" 
+            required
+            #tituloEdu="ngModel"
+            placeholder="Ingrese el título de la formación">
+        <div *ngIf="tituloEdu.invalid && (tituloEdu.dirty || tituloEdu.touched)">
+            <p *ngIf="tituloEdu?.hasError('required')" class="text-danger">El título es requerido</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="periodoEdu" class="form-label">Período</label>
+        <input type="text" [(ngModel)]="edu.periodoEdu" class="form-control" id="periodoEdu" placeholder="Ingrese el periodo de formación">
+    </div>
+
+    <div class="mb-3">
+        <label for="institucionEdu" class="form-label">Nombre de la institución</label>
+        <input type="text" [(ngModel)]="edu.institucionEdu" class="form-control" id="institucionEdu" placeholder="Ingrese el nombre de la institución">
+    </div>
+
+    <div class="mb-3">
+        <label for="descripcionEdu" class="form-label">Información adicional</label>
+        <textarea [(ngModel)]="edu.descripcionEdu" class="form-control" id="descripcionEdu" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
+    </div>
+    
+    <div class="mb-3">
+        <label for="urlLogoEdu" class="form-label">Url del logotipo</label>
+        <input type="text" [(ngModel)]="edu.urlLogoEdu" class="form-control" id="urlLogoEdu" placeholder="Ingrese url de la imagen">
+    </div>
+</div>
+
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="agregarEdu(edu)" *ngIf="edu.id==0" type="submit" class="btn btn-secondary">Agregar</button>
+    <button (click)="editarEdu(edu)" *ngIf="edu.id!=0" type="submit" class="btn btn-secondary">Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>

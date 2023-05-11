@@ -1,0 +1,45 @@
+<section id="heroBanner" class="hero-container d-flex align-items-center">
+
+    <form name="loginForm" [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginForm" class="shadow col-sm-6 p-4 m-auto">
+
+        <div class="modal-body">
+            <div class="my-3">
+                <input type="text" 
+                placeholder="Nombre de usuario"
+                formControlName="username" 
+                class="form-control"
+                required
+                [ngClass]="{'is-invalid': username?.errors && username?.touched, 'is-valid': !username?.errors && username?.touched}">
+                <div *ngIf="username?.errors && username?.touched">
+                    <p *ngIf="username?.hasError('required')" class="text-danger">El nombre de usuario es requerido</p>
+                    <p *ngIf="username?.hasError('minlength')" class="text-danger">Debe tener un mínimo de 4 caracteres</p>
+                </div>
+
+            </div>
+
+            <div class="my-3">
+                <input type="password"
+                placeholder="Contraseña"
+                formControlName="password" 
+                class="form-control"
+                [ngClass]="{'is-invalid': password?.errors && password?.touched, 'is-valid': !password?.errors && password?.touched}">
+                <div *ngIf="password?.errors && password?.touched">
+                    <p *ngIf="password?.hasError('required')" class="text-danger">La contraseña es requerida</p>
+                    <p *ngIf="password?.hasError('minlength')" class="text-danger">Debe tener un mínimo de 6 caracteres</p>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+            <p *ngIf="respta.msj==''">Enviando datos...</p>
+            <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+        </div>
+
+        <div class="modal-footer">
+            <button routerLink="/inicio" type="close" class="btn btn-outline-secondary">Cancelar</button>
+            <button *ngIf="!respta.salioBien" type="submit" class="btn btn-secondary">Ingresar</button>
+        </div>
+
+    </form>
+
+</section>

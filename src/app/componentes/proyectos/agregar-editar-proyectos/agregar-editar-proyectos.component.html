@@ -1,0 +1,47 @@
+<div>
+    <div class="mb-3">
+        <label for="nombreProye" class="form-label">Nombre del proyecto</label>
+        <input type="text" 
+            [(ngModel)]="proye.nombreProye" 
+            class="form-control"   
+            required
+            #nombreProye="ngModel" 
+            placeholder="Ingrese el nombre del proyecto">
+        <div *ngIf="nombreProye.invalid && (nombreProye.dirty || nombreProye.touched)">
+            <p *ngIf="nombreProye?.hasError('required')" class="text-danger">El nombre es requerido</p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="descripcionProye" class="form-label">Descripción</label>
+        <textarea [(ngModel)]="proye.descripcionProye" class="form-control" id="descripcionProye" rows="3" placeholder="Ingrese una breve descripción..."></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="imgUrl" class="form-label">Url de la imagen</label>
+        <input type="text" [(ngModel)]="proye.imgUrl" class="form-control" id="imgUrl" placeholder="Ingrese url de la imagen">
+    </div>
+
+    <div class="mb-3">
+        <label for="repoUrl" class="form-label">Url del repositorio</label>
+        <input type="text" [(ngModel)]="proye.repoUrl" class="form-control" id="repoUrl" placeholder="Ingrese url del repositorio">
+    </div>
+
+    <div class="mb-3">
+        <label for="liveUrl" class="form-label">Url del live/sitio</label>
+        <input type="text" [(ngModel)]="proye.liveUrl" class="form-control" id="liveUrl" placeholder="Ingrese url del sitio">
+    </div>
+</div>
+
+<div *ngIf="mostrarMsj" [ngClass]="!respta.salioBien? 'alert alert-danger': 'alert alert-success'" role="alert" >
+    <p *ngIf="respta.msj==''">Enviando datos...</p>
+    <p *ngIf="respta.msj!=''">{{respta.msj}}</p>
+</div>
+
+<div *ngIf="!respta.salioBien" class="modal-footer">
+    <button (click)="agregarProye(proye)" *ngIf="proye.id==0" type="submit" class="btn btn-secondary" aria-label="agregar" >Agregar</button>
+    <button (click)="editarProye(proye)" *ngIf="proye.id!=0" type="submit" class="btn btn-secondary" aria-label="editar" >Editar</button>
+</div>
+<div *ngIf="respta.salioBien" class="modal-footer">
+    <button (click)="cerrarModal()" type="close" class="btn btn-secondary" aria-label="cerrar" data-bs-dismiss="modal">Cerrar</button>
+</div>
